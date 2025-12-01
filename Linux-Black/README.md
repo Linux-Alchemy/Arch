@@ -1,60 +1,48 @@
-## Arch Linux Black
+### Arch Linux: The Manual Build
 
-**Arch Linux Black** is a proof-of-concept build created as a lightweight, heavily customized Arch-based system. This is actually my fourth attempt to get it 'just right'.
-The more know ya I guess...The goal was to replicate the overall usability and visual styling of my daily driver — but built entirely from scratch on Arch, for full control and performance.
+_A repository documenting a manual Arch installation. Because I had the time and a pretty decent neckbeard on the go._
 
-This build/project was as much about getting better with Linux as much as it was to have some fun with it.
+#### The Philosophy
+This isn't a tutorial; it's an autopsy of a system built from scratch. If a package is installed, I put it there. If a service is running, I enabled it. If it breaks, I broke it.
 
----
+#### The Architecture
 
-### 🧱 What This Is
+**Phase 1: The Foundation (The Good Stuff)**
 
-- Clean Arch install with a full Phase 1–3 build process
-- GNOME desktop environment with a groovy but minimalist theme
-- Daily apps, core utilities, privacy tools, and system hardening included
-- System managed with Btrfs subvolumes, Snapper snapshots, and minimal startup overhead
-- Targeted app sandboxing using Firejail + Flatpak
-- AppArmor enabled and protecting core services (after some manual setup)
+**Filesystem:** Btrfs with a specific subvolume layout (@, @home, @log, @cache).
 
-All build phases are fully documented in this repo.
+**Resilience:** Configured for Snapper transactional rollbacks. Don't reinstall; rewind.
+
+**Kernel:** LTS for stability.
 
 ---
 
-### 🧪 What Broke / What Bit Back
+**Phase 2: The Environment (The OK Stuff)**
 
-- All in all, this was alright. My previous three builds taught me a bunch. Nevertheless, there were a few issues with screen resolution and window resizing related to my GPU setup. You can find the details in the [changelog](https://github.com/RogueWizard42/linux_labs/blob/main/OS_Builds/arch-linux/Linux-Black-Phase1-changelog.md)
+**Desktop:** GNOME.
 
----
+**Terminal:** Tilix.
 
-### 🔐 Security Highlights
+**Browser:** Firefox.
 
-- **AppArmor** active for core system services
-- **Firejail** manually applied to high-risk apps (Firefox, VLC, Tor Browser, etc.)
-- **Flatpak** used where Firejail was overkill or too restrictive
-- **Timeshift** used in place of *snapper* for snapshot and rollback management
-- **UFW** active with sane default rules
+**Note:** Yes, I used Tilix (gross), GNOME and Firefox (also gross). If I were to do this again now, I'd make different choices. But the setup is sound. 
 
 ---
 
-### 🧠 Final Thoughts
+**Phase 3: The Fortress (The Paranoia)**
 
-Finally. Linux-Black LIVES!! So anyways, this was fun, and now Arch is my favorite thing.
+**AppArmor:** Custom profiles generated via auditd and aa-logprof.
 
-Highly recommend building it yourself if you're even a little curious. There’s no substitute for bleeding a bit on the Arch altar.
+**Sandboxing:** Firejail integration hard-coded into `.desktop` launchers.
 
----
-
-### 📁 Repo Structure
-
-- `Phase 1`: Base system install + filesystem + essential packages
-- `Phase 2`: Daily apps, DE, theming, tools
-- `Phase 3`: Hardening + security layers
-- `Phase 4`: ISO conversion via `ArchISO` (Under Construction)
-
-Each phase is its own Markdown doc — clean, annotated, and meant to be cloned, modified, or built on.
+**Network:** UFW default-deny.
 
 ---
 
-#### 🛠️ Status
+**Conclusion:**
 
-Project is complete(ish) 
+I did this manual build just to say that I did it.
+
+I will _not_ do it again.
+
+It's a pain in the ass, and not all things that are difficult are valuable. Just use the bloody `archinstall` script.
