@@ -11,7 +11,7 @@ This isn't a tutorial; it's an autopsy of a system built from scratch. If a pack
 
 **Filesystem:** Btrfs with a specific subvolume layout (@, @home, @log, @cache).
 
-**Resilience:** Configured for Snapper transactional rollbacks. Don't reinstall; rewind.
+**Resilience:** Configured for transactional rollbacks. Don't reinstall; rewind.
 
 **Kernel:** LTS for stability.
 
