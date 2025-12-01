@@ -9,21 +9,17 @@ This isn't a tutorial; it's an autopsy of a system built from scratch. If a pack
 
 **Phase 1: The Foundation (The Good Stuff)**
 
-**Filesystem:** Btrfs with a specific subvolume layout (@, @home, @log, @cache).
-
-**Resilience:** Configured for transactional rollbacks. Don't reinstall; rewind.
-
-**Kernel:** LTS for stability.
+- **Filesystem:** Btrfs with a specific subvolume layout (@, @home, @log, @cache).
+- **Resilience:** Configured for transactional rollbacks. Don't reinstall; rewind.
+- **Kernel:** LTS for stability.
 
 ---
 
 **Phase 2: The Environment (The OK Stuff)**
 
-**Desktop:** GNOME.
-
-**Terminal:** Tilix.
-
-**Browser:** Firefox.
+- **Desktop:** GNOME.
+- **Terminal:** Tilix.
+- **Browser:** Firefox.
 
 **Note:** Yes, I used Tilix (gross), GNOME and Firefox (also gross). If I were to do this again now, I'd make different choices. But the setup is sound. 
 
@@ -31,11 +27,11 @@ This isn't a tutorial; it's an autopsy of a system built from scratch. If a pack
 
 **Phase 3: The Fortress (The Paranoia)**
 
-**AppArmor:** Custom profiles generated via auditd and aa-logprof.
-
-**Sandboxing:** Firejail integration hard-coded into `.desktop` launchers.
-
-**Network:** UFW default-deny.
+- **AppArmor:** Custom profiles generated via auditd and aa-logprof.
+- **Sandboxing:** Firejail integration hard-coded into `.desktop` launchers.
+- **Lynis:** The really picky safety inspector
+- **Network:** UFW default-deny.
+- **ClamAV:** An open source malware detector
 
 ---
 
